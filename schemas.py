@@ -5,6 +5,7 @@ class BookBase(BaseModel):
     author: str
     description: str
     year: int
+    price: float
 
 class BookCreate(BookBase):
     pass
