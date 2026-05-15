@@ -31,3 +31,14 @@ def update_book(db: Session, book_id: int, book_data: BookCreate):
     db.commit()
     db.refresh(book_instance)
     return book_instance
+
+
+def delete_book(db: Session, book_id: int):
+    book_instance = db.query(Book).filter(Book.id == book_id).first()
+    
+    if not book_instance:
+        return None
+
+    db.delete(book_instance)
+    db.commit()
+    return book_instance
